@@ -38,7 +38,7 @@ ZSH_HIGHLIGHT_STYLES[path]='bold'
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/danhoizner/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/danhoizner/.rvm/bin:/usr/local/mysql/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/danhoizner/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/danhoizner/.rvm/bin:/usr/local/mysql/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
