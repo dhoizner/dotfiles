@@ -42,5 +42,3 @@ export PATH=/usr/local/bin:/usr/local/sbin:/Users/danhoizner/.rvm/gems/ruby-1.9.
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
-# export EDITOR="/usr/local/bin/mate -w"
