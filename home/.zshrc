@@ -31,9 +31,9 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git sublime npm vi-mode zsh-syntax-highlighting)
 
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[path]='bold'
+#source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'
+#ZSH_HIGHLIGHT_STYLES[path]='bold'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,4 +43,4 @@ export PATH=/usr/local/bin:/usr/local/sbin:/Users/danhoizner/.rvm/gems/ruby-1.9.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
-export EDITOR="/usr/local/bin/mate -w"
+# export EDITOR="/usr/local/bin/mate -w"
