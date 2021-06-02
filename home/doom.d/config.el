@@ -62,3 +62,4 @@
 
 (setq org-log-done t)
 (setq org-agenda-files (directory-files-recursively "~/git/dan/org/" "\\.org$"))
+(setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
