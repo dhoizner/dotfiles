@@ -52,3 +52,6 @@
 (package! evil-tutor)
 (package! mermaid-mode)
 (package! ob-mermaid)
+
+(package! key-chord)
+(package! smart-shift)
