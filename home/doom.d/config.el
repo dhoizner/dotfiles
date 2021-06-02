@@ -64,5 +64,9 @@
 (setq org-agenda-files (directory-files-recursively "~/git/dan/org/" "\\.org$"))
 (setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
 
+;;; scrollers
+(global-set-key "\M-n"  (lambda () (interactive) (scroll-up   4)) )
+(global-set-key "\M-e"  (lambda () (interactive) (scroll-down 4)) )
+
 (key-chord-define-global "<<" 'smart-shift-left)
 (key-chord-define-global ">>" 'smart-shift-right)
