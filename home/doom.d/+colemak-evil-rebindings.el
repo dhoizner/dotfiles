@@ -39,3 +39,7 @@
 
 (map! :mnv "C-m" #'evil-window-left
       :mnv "C-i" #'evil-window-right)
+
+(map! :prefix "gz"
+      :nv "n" #'evil-mc-make-cursor-move-next-line
+      :nv "e" #'evil-mc-make-cursor-move-prev-line)
