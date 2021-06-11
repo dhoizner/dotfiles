@@ -49,4 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! evil-tutor)
+(package! mermaid-mode)
+(package! ob-mermaid)
+
+(package! key-chord)
+(package! smart-shift)
