@@ -58,7 +58,6 @@
 
 (load! "+colemak-evil-rebindings.el")
 
-(map! :mnv "M-o" #'ace-window)
 
 (setq org-log-done t)
 (setq org-agenda-files (directory-files-recursively "~/git/dan/org/" "\\.org$"))
@@ -70,3 +69,20 @@
 
 (key-chord-define-global "<<" 'smart-shift-left)
 (key-chord-define-global ">>" 'smart-shift-right)
+
+;; configure inf-ruby to use pry
+(setq inf-ruby-default-implementation "pry")
+(setq inf-ruby-first-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)> *")
+(setq inf-ruby-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)[>*\"'] *")
+
+(map! :localleader
+      :map robe-mode-map
+      :prefix "s"
+      "s" #'inf-ruby)
+
+(setq avy-keys '(?a ?r ?s ?t ?g ?m ?n ?e ?i ?o))
+(setq avy-all-windows 't)
+
+(map! :map go-mode-map
+      :localleader
+      "p" #'gorepl-hydra/body)

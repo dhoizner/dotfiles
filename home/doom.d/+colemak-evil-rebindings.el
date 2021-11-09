@@ -30,12 +30,15 @@
 
 (map! :map evil-window-map
       "m" #'evil-window-left
+      "n" #'evil-window-down
+      "e" #'evil-window-up
       "C-m" #'evil-window-left
       "M" #'+evil/window-move-left
       "i" #'evil-window-right
       "C-i" #'evil-window-right
       "I" #'+evil/window-move-right
-      "x" #'maximize)
+      "x" #'maximize
+      "w" #'ace-window)
 
 (map! :mnv "C-m" #'evil-window-left
       :mnv "C-i" #'evil-window-right)
