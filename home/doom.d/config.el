@@ -88,3 +88,6 @@
 ;;        :desc "Kubernetes" "K" 'kubel))
 
 ;; TODO: must install Symbola for some ligatures to work
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))

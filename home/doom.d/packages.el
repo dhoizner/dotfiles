@@ -64,3 +64,4 @@
 (package! kubel-evil)
 (package! kubernetes)
 (package! kubernetes-evil)
+(package! exec-path-from-shell)
