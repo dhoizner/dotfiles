@@ -64,29 +64,6 @@
 
 (setq highlight-indent-guides-mode 'fill)
 
-;; (use-package kubernetes
-;;   :ensure t
-;;   :commands (kubernetes-overview)
-;;   :config
-;;   (setq kubernetes-poll-frequency 3600
-;;         kubernetes-redraw-frequency 3600))
-;; (use-package kubernetes-evil
-;;   :ensure t
-;;   :after kubernetes)
-
-;; (use-package kubernetes-evil
-;;   :after kubernetes)
-(setq kubernetes-poll-frequency 3600
-      kubernetes-redraw-frequency 3600)
-(map! :leader
-      (:prefix "o"
-       :desc "Kubernetes" "K" 'kubernetes-overview))
-
-;; (use-package kubel-evil)
-;; (map! :leader
-;;       (:prefix "o"
-;;        :desc "Kubernetes" "K" 'kubel))
-
 ;; TODO: must install Symbola for some ligatures to work
 
 (when (memq window-system '(mac ns x))
