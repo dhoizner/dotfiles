@@ -1,44 +1,40 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+eval "$(starship init zsh)"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="nebirhos"
+export GOROOT="/usr/local/go"
+export GOPATH="/Users/dan.hoizner/go"
+export PATH="$HOME/.emacs.d/bin:$PATH:$GOROOT/bin:$GOPATH/bin"
+export PATH="$PATH:/usr/local/protobuf/bin"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/dan.hoizner/.sdkman"
+[[ -s "/Users/dan.hoizner/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dan.hoizner/.sdkman/bin/sdkman-init.sh"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+alias isvg="rsvg-convert | imgcat"
+alias idot="dot -Tsvg -Gbgcolor=#282a36 -Ncolor=#f8f8f2 -Nfontcolor=#f8f8f2 -Ecolor=#f8f8f2 -Efontcolor=#f8f8f2 -Gfontcolor=#f8f8f2 -Gcolor=#f8f8f2 -Gpad=0.1pt| isvg"
+alias ig="./gradlew"
+alias igb="./gradlew build"
+alias igbnc="./gradlew clean && ./gradlew build --no-build-cache"
+alias igbci="./gradlew build -PdislContext=ci"
+alias igc="./gradlew clean"
+alias igt="./gradlew test"
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+alias k="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+alias g="git"
+alias gf="git fetch"
+alias gp="git pull"
+alias gc="git commit"
+alias gca="git commit --amend"
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+alias l4s="java -jar ~/git/mergebase/log4j-detector/target/log4j-detector-2021.12.14.jar"
+alias l4srg="rg 'log4j-core|log4j2'"
+alias l4sf="find . -name '*log4j-core*' -o -name '*log4j2*'"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sublime npm vi-mode zsh-syntax-highlighting)
-
-#source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#ZSH_HIGHLIGHT_STYLES[globbing]='fg=yellow'
-#ZSH_HIGHLIGHT_STYLES[path]='bold'
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/danhoizner/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/danhoizner/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/danhoizner/.rvm/bin:/usr/local/mysql/bin:$PATH
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
+source ~/.collibra_secrets
