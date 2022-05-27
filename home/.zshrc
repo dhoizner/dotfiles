@@ -130,6 +130,7 @@ alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpast
 alias weather="curl wttr.in"
 alias ocelot="petname -w 3 | tr -d '[:space:]' | pbcopy && pbpaste && echo"
 alias bigocelot="petname -w 5 | tr -d '[:space:]' | pbcopy && pbpaste && echo"
+alias lazygit="lazygit --use-config-file=/Users/dan.hoizner/.config/.lazygit"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
