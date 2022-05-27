@@ -12,6 +12,8 @@
 ;; Doom exposes five (optional) variables for controlling font
 ;;(global-evil-colemak-basics-mode)
 
+(setq doom-theme 'doom-fairy-floss)
+
 (load! "+colemak-evil-rebindings.el")
 
 
@@ -53,18 +55,27 @@
   :hook ((json-mode . rainbow-delimiters-mode))
   :hook ((groovy-mode . rainbow-delimiters-mode))
   :hook ((protobuf-mode . rainbow-delimiters-mode))
-  :hook ((go-mode . rainbow-delimiters-mode)))
+  :hook ((go-mode . rainbow-delimiters-mode))
+  :hook ((makefile-bsdmake-mode . rainbow-delimiters-mode)))
+
+(use-package zoom
+  :hook (doom-first-input . zoom-mode)
+  :config
+  (setq zoom-size '(0.618 . 0.618)
+        zoom-ignored-major-modes '(dired-mode vterm-mode)
+        zoom-ignored-buffer-names '("*doom:scratch*" "*info*" "*helpful variable: argv*")
+        zoom-ignored-buffer-name-regexps '("^*calc" "\\*helpful variable: .*\\*")
+        zoom-ignore-predicates (list (lambda () (< (count-lines (point-min) (point-max)) 20)))))
+
 
 (require 'key-chord)
 (key-chord-mode 1)
 
-(custom-set-variables '(zoom-mode t))
-;; resize using the [golden ratio](https://en.wikipedia.org/wiki/Golden_ratio)
-(custom-set-variables '(zoom-size '(0.618 . 0.618)))
-
-(setq highlight-indent-guides-mode 'fill)
+(setq highlight-indent-guides-method 'fill)
 
 ;; TODO: must install Symbola for some ligatures to work
 
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+(require 'dap-dlv-go)

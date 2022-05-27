@@ -58,5 +58,7 @@
   :recipe (:host github :repo "protocolbuffers/protobuf"
            :files ("editors/protobuf-mode.el")))
 
-(package! zoom)
 (package! exec-path-from-shell)
+
+(package! zoom)
+
