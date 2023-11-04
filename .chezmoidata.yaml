@@ -7,12 +7,12 @@ work:
   email: dan.hoizner@collibra.com
   website: https://www.collibra.com
 asdf:
-  kubectx: 0.9.4
-  direnv: 2.31.0
-  rust: 1.61.0
-  nodejs: 16.15.1
+  kubectx: 0.9.5
+  direnv: 2.32.3
+  rust: 1.73.0
+  nodejs: 20.9.0
   neovim: stable
-  krew: 0.4.3
+  krew: 0.4.4
 libraries:
   go:
     installer: go install
