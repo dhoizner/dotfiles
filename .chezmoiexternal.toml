@@ -1,0 +1,70 @@
+[".oh-my-zsh"]
+  type = "archive"
+  url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+  stripComponents = 1
+  refreshPeriod = "168h"
+  # waiting for https://github.com/twpayne/chezmoi/issues/1614#issuecomment-966524408
+  # exact: true
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/zsh-histdb"]
+  type = "archive"
+  url = "https://github.com/larkery/zsh-histdb/archive/master.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/zsh-exa"]
+  type = "archive"
+  url = "https://github.com/ptavares/zsh-exa/archive/main.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
+    exact = true
+    stripComponents = 1
+[".oh-my-zsh/custom/plugins/zsh-lsd"]
+  type = "archive"
+  url = "https://github.com/z-shell/zsh-lsd/archive/main.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".tmux_runtime"]
+  type = "archive"
+  url = "https://github.com/gpakosz/.tmux/archive/master.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".delta/themes.gitconfig"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/dandavison/delta/master/themes.gitconfig"
+  refreshPeriod = "168h"
+[".hammerspoon/Spoons/PaperWM.spoon"]
+  type = "archive"
+  url = "https://github.com/mogenson/PaperWM.spoon/archive/main.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".hammerspoon/stackline"]
+  type = "archive"
+  url = "https://github.com/AdamWagner/stackline/archive/main.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"
+[".alacritty-colorscheme"]
+  type = "archive"
+  url = "https://github.com/eendroroy/alacritty-theme/archive/master.tar.gz"
+  exact = true
+  stripComponents = 1
+  refreshPeriod = "168h"

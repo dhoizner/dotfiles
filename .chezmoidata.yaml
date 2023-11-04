@@ -1,0 +1,31 @@
+name: Dan Hoizner
+email: dan.hoizner@gmail.com
+social:
+  github: dhoizner
+  twitter: dandon
+work:
+  email: dan.hoizner@collibra.com
+  website: https://www.collibra.com
+asdf:
+  kubectx: 0.9.4
+  direnv: 2.31.0
+  rust: 1.61.0
+  nodejs: 16.15.1
+  neovim: stable
+  krew: 0.4.3
+libraries:
+  go:
+    installer: go install
+    global:
+      - github.com/go-delve/delve/cmd/dlv@latest
+      - github.com/bluehoodie/whoseport@latest
+      - github.com/goreleaser/goreleaser@latest
+      - gotest.tools/gotestsum@latest
+  typescript:
+    installer: npm install -g
+    global:
+      - typescript-language-server typescript
+  rust:
+    installer: cargo install
+    global:
+      - tuc

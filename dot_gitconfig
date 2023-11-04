@@ -1,0 +1,22 @@
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true # use n and N to move between diff sections
+	light = true
+	features = monokai-extended-light
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[user]
+	name = Dan Hoizner
+	email = dan.hoizner@gmail.com
+[init]
+	defaultBranch = main
