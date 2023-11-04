@@ -184,8 +184,8 @@ export PATH="$HOME/bin:$PATH"
 
 eval $(thefuck --alias)
 
-source ~/.collibra_secrets
-source ~/.docker_secrets
+FILE=~/.collibra_secrets && test -f $FILE && source $FILE
+FILE=~/.docker_secrets && test -f $FILE && source $FILE
 
 bindkey "^X^_" redo
 
