@@ -13,18 +13,30 @@ vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Split window right", remap
 vim.keymap.set("n", "gpd", function()
   require("goto-preview").goto_preview_definition({})
 end, { desc = "Peek definition" })
+
 vim.keymap.set("n", "gpt", function()
   require("goto-preview").goto_preview_type_definition({})
 end, { desc = "Peek type definition" })
+
 vim.keymap.set("n", "gpi", function()
   require("goto-preview").goto_preview_implementation({})
 end, { desc = "Peek implementation" })
+
 vim.keymap.set("n", "gpD", function()
   require("goto-preview").goto_preview_declaration({})
 end, { desc = "Peek declaration" })
+
 vim.keymap.set("n", "gpr", function()
   require("goto-preview").goto_preview_references()
 end, { desc = "Peek references" })
+
 vim.keymap.set("n", "gP", function()
   require("goto-preview").close_all_win()
 end, { desc = "Close peek windows" })
+
+vim.keymap.set("n", "<leader>ub", function()
+  local cat = require("catppuccin")
+  cat.options.transparent_background = not cat.options.transparent_background
+  cat.compile()
+  vim.cmd.colorscheme(vim.g.colors_name)
+end, { desc = "Toggle transpaent background" })
