@@ -10,6 +10,8 @@ vim.keymap.del("n", "<leader>|")
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split window down", remap = true })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Split window right", remap = true })
 
+vim.keymap.set("n", "<leader>gg", ":Neogit<cr>", { desc = "Open Neogit" })
+
 vim.keymap.set("n", "gpd", function()
   require("goto-preview").goto_preview_definition({})
 end, { desc = "Peek definition" })
