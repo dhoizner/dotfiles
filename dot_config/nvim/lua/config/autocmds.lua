@@ -20,3 +20,20 @@ vim.api.nvim_create_autocmd("BufEnter", {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  desc = "relic",
+  group = group,
+  pattern = "*/dactyl/keymap.c",
+  callback = function()
+    require("qmk").setup({
+      name = "LAYOUT_split_3x5_2",
+      layout = {
+        "x x x x x _ _ _ x x x x x",
+        "x x x x x _ _ _ x x x x x",
+        "x x x x x _ _ _ x x x x x",
+        "_ _ _ x x _ _ _ x x _ _ _",
+      },
+    })
+  end,
+})
