@@ -132,9 +132,9 @@ ZSH_AUTOSUGGEST_STRATEGY=histdb_top
    # export EDITOR='lvim'
  # fi
  # alias e="emacsclient -c -nw"
-export EDITOR='hx'
-alias e='hx'
-alias vim='nvim'
+export EDITOR='nvim'
+alias e='v'
+alias v='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

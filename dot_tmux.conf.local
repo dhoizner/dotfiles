@@ -360,8 +360,8 @@ set -g mode-keys vi
 set -gu prefix2
 unbind C-a
 unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+set -g prefix C-Space
+bind C-Space send-prefix
 
 # unbind C-a, interferes with CMD+left
 # set -gu prefix2
@@ -371,29 +371,29 @@ bind C-a send-prefix
 set -g status-position top
 
 # colemak pane navigation
-bind -r m select-pane -L # move left
-bind -r n select-pane -D # move down
-bind -r e select-pane -U # move up
-bind -r i select-pane -R # move right
+# bind -r m select-pane -L # move left
+# bind -r n select-pane -D # move down
+# bind -r e select-pane -U # move up
+# bind -r i select-pane -R # move right
 
 bind -r C-r previous-window # select previous window
 bind -r C-s next-window     # selet next window 
 
 # colemak pane resizing
-bind -r left resize-pane -L 2
-bind -r down resize-pane -D 2
-bind -r up resize-pane -U 2
-bind -r right resize-pane -R 2
+# bind -r left resize-pane -L 2
+# bind -r down resize-pane -D 2
+# bind -r up resize-pane -U 2
+# bind -r right resize-pane -R 2
 
 # colemak copy-mode settings
-run -b 'tmux bind -T copy-mode-vi m send -X cursor-left 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi n send -X cursor-down 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi e send -X cursor-up 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi i send -X cursor-right 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi M send -X start-of-line 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi I send -X end-of-line 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi f send -X next-word 2> /dev/null || true'
-run -b 'tmux bind -T copy-mode-vi F send -X next-space 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi m send -X cursor-left 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi n send -X cursor-down 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi e send -X cursor-up 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi i send -X cursor-right 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi M send -X start-of-line 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi I send -X end-of-line 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi f send -X next-word 2> /dev/null || true'
+# run -b 'tmux bind -T copy-mode-vi F send -X next-space 2> /dev/null || true'
 
 # colemak toggle mouse
 bind M run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
@@ -481,3 +481,31 @@ set -g terminal-overrides ',xterm-24bit:Tc'
 #
 # "$@"
 # # /!\ do not remove the previous line
+#
+
+# integrate with smart-spLits.nvim
+# Smart pane switching with awareness of Vim splits.
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" 'send-keys C-h'  'select-pane -L'
+bind-key -n C-j if-shell "$is_vim" 'send-keys C-j'  'select-pane -D'
+bind-key -n C-k if-shell "$is_vim" 'send-keys C-k'  'select-pane -U'
+bind-key -n C-l if-shell "$is_vim" 'send-keys C-l'  'select-pane -R'
+
+bind-key -n M-h if-shell "$is_vim" 'send-keys M-h' 'resize-pane -L 3'
+bind-key -n M-j if-shell "$is_vim" 'send-keys M-j' 'resize-pane -D 3'
+bind-key -n M-k if-shell "$is_vim" 'send-keys M-k' 'resize-pane -U 3'
+bind-key -n M-l if-shell "$is_vim" 'send-keys M-l' 'resize-pane -R 3'
+
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
