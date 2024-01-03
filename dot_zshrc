@@ -78,7 +78,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(asdf direnv fzf git kubectl kubectx zoxide zsh-autosuggestions zsh-exa zsh-syntax-highlighting)
-plugins=(asdf direnv fzf git zoxide zsh-autosuggestions zsh-lsd zsh-syntax-highlighting)
+plugins=(asdf direnv fzf git zoxide fzf-tab zsh-autosuggestions zsh-lsd zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -203,10 +203,6 @@ if [[ -f $ASDF_DIR/asdf.sh ]]; then
 fi
 
 DISABLE_AUTO_UPDATE="true" # disable auto updates to avoid chezmoi conflicts
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/dan.hoizner/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # # To customize prompt, run `p10k configure` or edit ~/git/dan/dotfiles/home/.p10k.zsh.
 # [[ ! -f ~/git/dan/dotfiles/home/.p10k.zsh ]] || source ~/git/dan/dotfiles/home/.p10k.zsh
