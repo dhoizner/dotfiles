@@ -3,7 +3,8 @@ local act = wezterm.action
 
 return {
 	color_scheme = "Catppuccin Macchiato (Gogh)",
-	window_background_opacity = 0.8,
+	window_background_opacity = 0.6,
+	macos_window_background_blur = 20,
 	window_decorations = "RESIZE",
 	font = wezterm.font("Comic Code Ligatures"),
 	font_size = 12.0,

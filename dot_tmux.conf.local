@@ -3,6 +3,7 @@
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
+#
 
 
 # -- navigation ----------------------------------------------------------------
@@ -37,6 +38,10 @@ tmux_conf_new_pane_reconnect_ssh=false
 #   - false (default)
 tmux_conf_new_session_prompt=false
 
+set -g base-index 1           # start windows numbering at 1
+setw -g pane-base-index 1     # make pane numbering consistent with windows
+
+setw -g automatic-rename off   # rename window to reflect current program
 
 # # -- display -------------------------------------------------------------------
 #
@@ -70,10 +75,14 @@ set -g @catppuccin_window_right_separator "█ "
 set -g @catppuccin_window_number_position "right"
 set -g @catppuccin_window_middle_separator "  █"
 
+# set -g @catppuccin_window_default_fill "number"
+#
+# set -g @catppuccin_window_current_fill "number"
+# set -g @catppuccin_window_current_text "#{pane_current_path}"
 set -g @catppuccin_window_default_fill "number"
-
+set -g @catppuccin_window_default_text "#W"
 set -g @catppuccin_window_current_fill "number"
-set -g @catppuccin_window_current_text "#{pane_current_path}"
+set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
 
 set -g @catppuccin_status_modules_right "application session date_time"
 set -g @catppuccin_status_left_separator  ""
@@ -363,10 +372,6 @@ unbind C-b
 set -g prefix C-Space
 bind C-Space send-prefix
 
-# unbind C-a, interferes with CMD+left
-# set -gu prefix2
-# unbind C-a
-
 # move status line to top
 set -g status-position top
 
@@ -378,29 +383,6 @@ set -g status-position top
 
 bind -r C-r previous-window # select previous window
 bind -r C-s next-window     # selet next window 
-
-# colemak pane resizing
-# bind -r left resize-pane -L 2
-# bind -r down resize-pane -D 2
-# bind -r up resize-pane -U 2
-# bind -r right resize-pane -R 2
-
-# colemak copy-mode settings
-# run -b 'tmux bind -T copy-mode-vi m send -X cursor-left 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi n send -X cursor-down 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi e send -X cursor-up 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi i send -X cursor-right 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi M send -X start-of-line 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi I send -X end-of-line 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi f send -X next-word 2> /dev/null || true'
-# run -b 'tmux bind -T copy-mode-vi F send -X next-space 2> /dev/null || true'
-
-# colemak toggle mouse
-bind M run "cut -c3- ~/.tmux.conf | sh -s _toggle_mouse"
-
-# edit configuration
-bind R new-window -n "~/.tmux.conf.local" "EDITOR=\${EDITOR//mvim/vim} && EDITOR=\${EDITOR//gvim/vim} && \${EDITOR:-vim} ~/.tmux.conf.local && tmux source ~/.tmux.conf && tmux display \"~/.tmux.conf sourced\""
-bind r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
 # splits
 bind v split-window -h
@@ -509,3 +491,7 @@ bind-key -T copy-mode-vi 'C-j' select-pane -D
 bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+# install omerxx/tmux-sessionx
+set -g @plugin 'omerxx/tmux-sessionx'
+set -g @sessionx-bind 'o'
