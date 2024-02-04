@@ -78,7 +78,8 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(asdf direnv fzf git kubectl kubectx zoxide zsh-autosuggestions zsh-exa zsh-syntax-highlighting)
-plugins=(asdf direnv fzf git forgit zoxide fzf-tab zsh-autosuggestions zsh-lsd zsh-syntax-highlighting)
+plugins=(asdf fzf git forgit zoxide zsh-vi-mode fzf-tab zsh-autosuggestions zsh-lsd zsh-syntax-highlighting)
+# plugins=(asdf direnv fzf git forgit zoxide zsh-vi-mode fzf-tab zsh-autosuggestions zsh-lsd zsh-syntax-highlighting)
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -145,8 +146,8 @@ ZSH_AUTOSUGGEST_STRATEGY=histdb_top
    # export EDITOR='lvim'
  # fi
  # alias e="emacsclient -c -nw"
-export EDITOR='nvim'
-alias e='v'
+export EDITOR='hx'
+alias e='hx'
 alias v='nvim'
 
 # Compilation flags
@@ -252,6 +253,9 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# helix
+# HELIX_RUNTIME=~/git/helix-editor/helix/runtime
+
 # eval "$(zellij setup --generate-auto-start zsh)"
 function zr () { zellij run --name "$*" -- zsh -ic "$*";}
 function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
@@ -263,3 +267,13 @@ function gprr {
   git switch --detach FETCH_HEAD
   git reset $(git merge-base HEAD main)
 }
+
+# git diff before commit
+unalias gg
+function gg {
+    br --conf ~/.config/broot/git-diff-conf.toml --git-status
+}
+
+. ~/.config/wezterm/wezterm.sh
+
+source /Users/dan.hoizner/.config/broot/launcher/bash/br
