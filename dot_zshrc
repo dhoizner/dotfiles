@@ -165,8 +165,7 @@ alias v='nvim'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export GOROOT="/usr/local/go"
-export GOPATH="/Users/dan.hoizner/go"
+export GOPATH="$HOME/go"
 # export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$GOROOT/bin:$GOPATH/bin:/usr/local/protobuf/bin:$PATH"
 
