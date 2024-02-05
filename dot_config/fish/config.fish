@@ -4,6 +4,7 @@ end
 
 fish_add_path ~/bin
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
 
 # width=20 so delta decorations don't wrap around small fzf preview pane
 set fzf_diff_highlighter delta --paging=never --diff-so-fancy # --width=20
