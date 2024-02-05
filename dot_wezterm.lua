@@ -56,7 +56,6 @@ local function split_nav(resize_or_move, key)
 end
 
 return {
-	default_prog = { "/usr/local/bin/fish", "-l" },
 	color_scheme = "Catppuccin Frappe",
 	-- color_scheme = "Catppuccin Macchiato (Gogh)",
 	-- window_background_opacity = 0.6,
