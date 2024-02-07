@@ -187,5 +187,14 @@ set -g tide_vi_mode_icon_replace R
 set -g tide_vi_mode_icon_visual V
 set -g tide_zig_icon \ue6a9
 
-direnv hook fish | source
+if type -qf direnv
+    # Load a Node.js version from a .node-version or .nvmrc file
+    # from this path when using 'use node'
+    set -gx NODE_VERSIONS ~/.local/share/nvm
+    set -gx NODE_VERSION_PREFIX v
+
+    # Always keep at the end of this file
+    direnv hook fish | source
+end
+
 zoxide init fish | source
