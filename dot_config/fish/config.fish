@@ -27,7 +27,61 @@ abbr cmc "chezmoi cd"
 abbr cma "chezmoi add"
 abbr cmap "chezmoi apply"
 
-set -g EDITOR vim
+abbr g "git status"
+abbr ga "git add ."
+abbr gb "git branch -v"
+abbr gc "git commit"
+abbr gca "git commit -av"
+abbr gcl "git clone"
+abbr gco "git checkout -b"
+abbr gcom "~/bin/git-to-master-cleanup-branch.sh"
+abbr gd "nvim +DiffviewOpen"
+abbr gf "git fetch --all"
+abbr ghd "gh dash"
+abbr gl "git pull"
+abbr gma "git merge --abort"
+abbr gmc "git merge --continue"
+abbr gp "git push"
+abbr gpom "git pull origin main"
+abbr gpr "gh pr create"
+abbr gpum "git pull upstream master"
+abbr gr "git remote"
+abbr gra "git remote add"
+abbr grc "git rebase --continue"
+abbr grao "git remote add origin"
+abbr grau "git remote add upstream"
+abbr grv "git remote -v"
+abbr gs "git status"
+abbr gst "git status"
+
+abbr l "lsd  --group-dirs first -A"
+abbr ld lazydocker
+abbr lg lazygit
+abbr ll "lsd  --group-dirs first -Al"
+abbr lt "lsd  --group-dirs last -A --tree"
+
+abbr rmr "rm -rf"
+
+abbr s sesh_start
+abbr s. "sesh connect ."
+abbr sc "sesh connect"
+abbr sa "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
+abbr sai "SwitchAudioSource -t input -s (SwitchAudioSource -t input -a | fzf-tmux -p --reverse)"
+abbr sao "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
+abbr sb "sam build"
+abbr sf "source ~/.config/fish/config.fish"
+# TODO: move tmux conf?
+# abbr st "tmux source ~/.config/tmux/tmux.conf"
+abbr st "tmux source ~/.tmux.conf.local"
+
+abbr vf "nvim ~/.config/fish/config.fish"
+abbr vt "nvim ~/.tmux.conf.local"
+
+abbr uuid "uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste && echo"
+
+
+set -x EDITOR nvim
+set -x XDG_CONFIG_HOME "$HOME/.config"
 set -g fish_greeting
 
 # Tide colors
