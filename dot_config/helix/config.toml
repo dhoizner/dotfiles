@@ -1,0 +1,43 @@
+theme = "catppuccin_frappe"
+
+[keys.normal]
+X="extend_line_above"
+esc = ["collapse_selection", "keep_primary_selection"]
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+"C-d" = ["half_page_down", "goto_window_center"]
+"C-u" = ["half_page_up", "goto_window_center"]
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
+
+[keys.normal.backspace]
+g = ":run-shell-command zellij run -fc -- lazygit"
+# b = ":run-shell-command zellij run -f -- just build"
+# r = ":run-shell-command zellij run -f -- just run"
+# t = ":run-shell-command zellij run -f -- just test"
+# f = ":run-shell-command zellij run -fc -- broot"
+
+[keys.normal.backspace.d]
+g = ":run-shell-command zellij run -f -- make db/generate"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal."+"]
+r = ":run-shell-command zellij run -f -- make run"
+# f = [":sh zellij run -i -c -- yazi"]
+f = [":insert-output xplr"]
+# o = [":new", ":clipboard-paste-before","select_all","split_selection_on_newline", "goto_file", "goto_last_modified_file",":buffer-close!",":redraw"]
+[keys.normal."+".t]
+s = ":pipe-to zellij run -f -- gotestsum --format-hide-empty-pkg ./... -run=$(cat -) -count=1"
+t = ":pipe-to zellij run -f -- gotestsum"
+w = ":pipe-to zellij run -f -- gotestsum --watch ./..."
+
