@@ -4,6 +4,7 @@ local w = require("wezterm")
 local act = w.action
 
 return {
+	-- disable_default_key_bindings = true,
 	color_scheme = "Catppuccin Frappe",
 	window_decorations = "RESIZE",
 	font = w.font_with_fallback({
