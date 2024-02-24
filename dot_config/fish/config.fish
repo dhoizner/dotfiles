@@ -1,9 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
 set brewcmd (path filter /opt/homebrew/bin/brew /usr/local/bin/brew)[1]
 and $brewcmd shellenv | source
+fish_add_path ~/.config/bin
 fish_add_path ~/bin
 fish_add_path ~/go/bin
 
@@ -30,10 +27,11 @@ abbr cma "chezmoi add"
 abbr cmap "chezmoi apply"
 
 abbr gst "git status"
-abbr gco "git checkout"
-abbr gcb "git checkout -b"
+# abbr gco "git checkout"
+# abbr gcb "git checkout -b"
 abbr gca "git commit --amend"
 abbr gcmsg "git commit -m"
+abbr gfo "git fetch origin"
 abbr grhh! "git reset HEAD --hard"
 abbr gpf! "git push --force-with-lease"
 abbr ggpush "git push origin HEAD"
@@ -85,10 +83,10 @@ abbr sb "sam build"
 abbr sf "source ~/.config/fish/config.fish"
 # TODO: move tmux conf?
 # abbr st "tmux source ~/.config/tmux/tmux.conf"
-abbr st "tmux source ~/.tmux.conf.local"
+abbr st "tmux source ~/.config/tmux/tmux.conf"
 
 abbr vf "nvim ~/.config/fish/config.fish"
-abbr vt "nvim ~/.tmux.conf.local"
+abbr vt "nvim ~/.config/tmux/tmux.conf"
 abbr vw "nvim ~/.config/wezterm/wezterm.lua"
 
 abbr uuid "uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste && echo"

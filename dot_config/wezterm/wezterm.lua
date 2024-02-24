@@ -1,11 +1,13 @@
 local k = require("utils/keys")
+local cs = require("utils/color_scheme")
 
 local w = require("wezterm")
 local act = w.action
 
 return {
 	-- disable_default_key_bindings = true,
-	color_scheme = "Catppuccin Frappe",
+	-- color_scheme = "Catppuccin Frappe",
+	color_scheme = cs.get_color_scheme(),
 	window_decorations = "RESIZE",
 	font = w.font_with_fallback({
 		{ family = "Comic Code Ligatures" },
@@ -22,6 +24,10 @@ return {
 	-- keys
 	keys = {
 		k.cmd_key("f", k.multiple_actions(":Grep")),
+		k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
+		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
+		k.cmd_key("p", k.multiple_actions(":GoToFile")),
+		k.cmd_key("j", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 		k.cmd_to_tmux_prefix("1", "1"),
 		k.cmd_to_tmux_prefix("2", "2"),
@@ -59,10 +65,27 @@ return {
 		),
 
 		{
+			mods = "CMD|SHIFT",
+			key = "}",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "Space" }),
+				act.SendKey({ key = "n" }),
+			}),
+		},
+		{
+			mods = "CMD|SHIFT",
+			key = "{",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "Space" }),
+				act.SendKey({ key = "p" }),
+			}),
+		},
+
+		{
 			mods = "CTRL",
 			key = "Tab",
 			action = act.Multiple({
-				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ mods = "CTRL", key = "Space" }),
 				act.SendKey({ key = "n" }),
 			}),
 		},
@@ -71,7 +94,7 @@ return {
 			mods = "CTRL|SHIFT",
 			key = "Tab",
 			action = act.Multiple({
-				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ mods = "CTRL", key = "Space" }),
 				act.SendKey({ key = "n" }),
 			}),
 		},

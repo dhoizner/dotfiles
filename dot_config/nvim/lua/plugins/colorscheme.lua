@@ -60,9 +60,14 @@ return {
     },
   },
   {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
+      colorscheme = "oxocarbon",
+      background = "dark",
     },
   },
   {

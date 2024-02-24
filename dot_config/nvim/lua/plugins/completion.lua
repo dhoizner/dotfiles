@@ -2,12 +2,31 @@ return {
   {
     "telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
+      "ThePrimeagen/harpoon",
+      "joshmedeski/telescope-smart-goto.nvim",
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+      {
+        "danielfalk/smart-open.nvim",
+        branch = "0.2.x",
+        config = function() end,
+        dependencies = {
+          "kkharji/sqlite.lua",
+          { "nvim-telescope/telescope-fzy-native.nvim" },
+        },
+      },
     },
+    config = function(_, _)
+      local telescope = require("telescope")
+      telescope.load_extension("harpoon")
+      telescope.load_extension("smart_goto")
+      telescope.load_extension("smart_open")
+      telescope.load_extension("live_grep_args")
+      telescope.load_extension("fzf")
+    end,
   },
   {
     "L3MON4D3/LuaSnip",
