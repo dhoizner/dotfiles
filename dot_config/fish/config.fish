@@ -26,6 +26,8 @@ abbr cmc "chezmoi cd"
 abbr cma "chezmoi add"
 abbr cmap "chezmoi apply"
 
+# TODO: move this to a function
+alias git_current_branch "git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
 abbr gst "git status"
 # abbr gco "git checkout"
 # abbr gcb "git checkout -b"
@@ -34,8 +36,8 @@ abbr gcmsg "git commit -m"
 abbr gfo "git fetch origin"
 abbr grhh! "git reset HEAD --hard"
 abbr gpf! "git push --force-with-lease"
-abbr ggpush "git push origin HEAD"
-abbr ggpull "git pull origin HEAD"
+abbr ggpush 'git push origin "$(git_current_branch)"'
+abbr ggpull 'git pull origin "$(git_current_branch)"'
 # abbr g "git status"
 # abbr ga "git add ."
 # abbr gb "git branch -v"
