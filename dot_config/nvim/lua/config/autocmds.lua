@@ -83,6 +83,8 @@ local find_files_hijack_netrw = vim.api.nvim_create_augroup("find_files_hijack_n
 -- clear FileExplorer appropriately to prevent netrw from launching on folders
 -- netrw may or may not be loaded before telescope-find-files
 -- conceptual credits to nvim-tree and telescope-file-browser
+local netrw_bufname
+
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   once = true,
@@ -95,11 +97,24 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
   callback = function()
     vim.schedule(function()
-      -- Early return if netrw or not a directory
-      if vim.bo[0].filetype == "netrw" or vim.fn.isdirectory(vim.fn.expand("%:p")) == 0 then
+      if vim.bo[0].filetype == "netrw" then
+        return
+      end
+      local bufname = vim.api.nvim_buf_get_name(0)
+      if vim.fn.isdirectory(bufname) == 0 then
+        _, netrw_bufname = pcall(vim.fn.expand, "#:p:h")
         return
       end
 
+      -- prevents reopening of file-browser if exiting without selecting a file
+      if netrw_bufname == bufname then
+        netrw_bufname = nil
+        return
+      else
+        netrw_bufname = bufname
+      end
+
+      -- ensure no buffers remain with the directory name
       vim.api.nvim_buf_set_option(0, "bufhidden", "wipe")
 
       require("telescope.builtin").find_files({

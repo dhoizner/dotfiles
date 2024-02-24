@@ -28,7 +28,6 @@ return {
 		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("j", k.multiple_actions(":GoToFile")),
-		k.cmd_key("q", k.multiple_actions(":qa!")),
 		k.cmd_to_tmux_prefix("1", "1"),
 		k.cmd_to_tmux_prefix("2", "2"),
 		k.cmd_to_tmux_prefix("3", "3"),
@@ -55,6 +54,14 @@ return {
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
 		k.cmd_to_tmux_prefix("Z", "Z"),
+
+		k.cmd_key(
+			"q",
+			act.Multiple({
+				act.SendKey({ key = "\x1b" }), -- escape
+				k.multiple_actions(":qa!"),
+			})
+		),
 
 		k.cmd_key(
 			"s",
