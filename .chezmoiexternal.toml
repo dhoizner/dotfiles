@@ -8,10 +8,10 @@ url = "https://github.com/eendroroy/alacritty-theme/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
-[".config/bat/themes"]
+[".config/bat"]
 type = "archive"
 url = "https://github.com/catppuccin/bat/archive/main.tar.gz"
-include = ["**/*.tmTheme"]
+include = ["**/themes/*.tmTheme"]
 stripComponents = 1
 refreshPeriod = "168h"
 [".config/iTerm2-Color-Schemes"]
