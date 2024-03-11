@@ -14,7 +14,10 @@ abbr fp _fzf_search_processes
 abbr fv '_fzf_search_variables (set --show | psub) (set --names | psub)'
 abbr fs _fzf_search_git_status
 abbr fl _fzf_search_git_log
-alias vim nvim
+alias vim "NVIM_APPNAME=lazy nvim"
+alias kv "NVIM_APPNAME=kickstart nvim"
+alias av "NVIM_APPNAME=astro nvim"
+alias nv "NVIM_APPNAME=nvchad nvim"
 abbr v vim
 abbr fco "vim ~/.config/fish/config.fish"
 abbr fcr "cat ~/.config/fish/config.fish | source"
