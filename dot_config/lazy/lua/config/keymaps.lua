@@ -9,6 +9,12 @@ vim.keymap.del("n", "<leader>|")
 
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split window down", remap = true })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Split window right", remap = true })
+vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Switch window left", remap = true })
+vim.keymap.set("n", "<leader>wj", "<C-W>j", { desc = "Switch window down", remap = true })
+vim.keymap.set("n", "<leader>wk", "<C-W>k", { desc = "Switch window up", remap = true })
+vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Switch window right", remap = true })
+
+vim.keymap.set("n", "U", "<C-r>", { remap = true })
 
 vim.keymap.set("n", "<leader>gg", ":Neogit<cr>", { desc = "Open Neogit" })
 

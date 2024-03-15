@@ -18,6 +18,7 @@ alias vim "NVIM_APPNAME=lazy nvim"
 alias kv "NVIM_APPNAME=kickstart nvim"
 alias av "NVIM_APPNAME=astro nvim"
 alias nv "NVIM_APPNAME=nvchad nvim"
+alias mmv "NVIM_APPNAME=mini nvim"
 abbr v vim
 abbr fco "vim ~/.config/fish/config.fish"
 abbr fcr "cat ~/.config/fish/config.fish | source"
@@ -90,9 +91,9 @@ abbr sf "source ~/.config/fish/config.fish"
 # abbr st "tmux source ~/.config/tmux/tmux.conf"
 abbr st "tmux source ~/.config/tmux/tmux.conf"
 
-abbr vf "nvim ~/.config/fish/config.fish"
-abbr vt "nvim ~/.config/tmux/tmux.conf"
-abbr vw "nvim ~/.config/wezterm/wezterm.lua"
+abbr vf "vim ~/.config/fish/config.fish"
+abbr vt "vim ~/.config/tmux/tmux.conf"
+abbr vw "vim ~/.config/wezterm/wezterm.lua"
 
 abbr uuid "uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste && echo"
 

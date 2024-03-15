@@ -105,5 +105,11 @@ return {
 				act.SendKey({ key = "n" }),
 			}),
 		},
+
+		{
+			mods = "ALT",
+			key = "Enter",
+			action = w.action.DisableDefaultAssignment,
+		},
 	},
 }
