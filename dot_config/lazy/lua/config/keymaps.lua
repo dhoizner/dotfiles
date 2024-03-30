@@ -68,6 +68,10 @@ vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
 
+vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", { desc = "Run request under the cursor" })
+vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run latest request" })
+vim.keymap.set("n", "<leader>re", "<cmd>Telescope rest select_env<cr>", { desc = "Select rest.nvim environment" })
+
 -- peek fold under cursor or open LSP hover
 vim.keymap.set("n", "K", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()

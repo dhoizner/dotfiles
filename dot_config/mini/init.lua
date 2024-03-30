@@ -8,11 +8,15 @@ local opt = vim.opt
 opt.breakindent = true
 opt.clipboard = 'unnamedplus'
 opt.cursorline = true
+opt.foldcolumn = '1'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 opt.hlsearch = true
 opt.ignorecase = true
 opt.inccommand = 'nosplit'
 opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.mouse = 'a'
 opt.number = true
 opt.relativenumber = true

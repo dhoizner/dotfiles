@@ -7,8 +7,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "graphql",
         "http",
         "hurl",
+        "json",
+        "lua",
+        "xml",
       },
     },
   },

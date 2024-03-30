@@ -2,7 +2,20 @@ return {
 	{
 		"echasnovski/mini.nvim",
 		config = function()
-			require("mini.ai").setup()
+			local ai = require("mini.ai")
+			local opts = {
+				n_lines = 500,
+				custom_textobjects = {
+					o = ai.gen_spec.treesitter({
+						a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+						i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+					}, {}),
+					f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+					c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
+					t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
+				},
+			}
+			require("mini.ai").setup(opts)
 			require('mini.align').setup()
 			-- require{'mini.animate'}.setup()
 			-- require("mini.base16").setup({})
@@ -53,6 +66,9 @@ return {
 					{ mode = "x", keys = "z" },
 					{ mode = 'n', keys = '\\' },
 					{ mode = 'x', keys = '\\' },
+
+					{ mode = 'n', keys = ']' },
+					{ mode = 'x', keys = ']' },
 				},
 
 				clues = {
@@ -179,5 +195,6 @@ return {
 			require("mini.trailspace").setup()
 			require("mini.visits").setup()
 		end,
+		version = false,
 	},
 }
