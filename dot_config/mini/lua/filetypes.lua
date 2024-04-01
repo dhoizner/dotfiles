@@ -1,5 +1,6 @@
 vim.filetype.add({
-	filename = {
-		-- ['name'] = 'type',
+	extension = {
+		keymap = "c",
+		dtsi = "c",
 	},
 })

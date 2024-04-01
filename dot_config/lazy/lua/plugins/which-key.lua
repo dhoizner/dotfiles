@@ -65,6 +65,7 @@ return {
           { mode = "n", keys = "<Leader>d", desc = "[D]ebug" },
           { mode = "n", keys = "<Leader>f", desc = "[F]iles" },
           { mode = "n", keys = "<Leader>g", desc = "[G]it" },
+          { mode = "n", keys = "<Leader>o", desc = "[O]verseer" },
           { mode = "n", keys = "<Leader>q", desc = "Session" },
           { mode = "n", keys = "<Leader>r", desc = "[R]est" },
           { mode = "n", keys = "<Leader>s", desc = "[S]earch" },
