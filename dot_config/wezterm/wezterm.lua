@@ -9,6 +9,8 @@ return {
 	-- color_scheme = "Catppuccin Frappe",
 	color_scheme = cs.get_color_scheme(),
 	window_decorations = "RESIZE",
+	window_background_opacity = 0.6,
+	macos_window_background_blur = 20,
 	font = w.font_with_fallback({
 		{ family = "Comic Code Ligatures" },
 		-- { family = "FiraCode Nerd Font Mono" },

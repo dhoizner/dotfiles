@@ -168,9 +168,8 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client and client.name == "jdtls" then
-            local wk = require("which-key")
-
             if LazyVim.has("which-key") then
+              local wk = require("which-key")
               wk.register({
                 ["<leader>cx"] = { name = "+extract" },
                 ["<leader>cxv"] = { require("jdtls").extract_variable_all, "Extract Variable" },

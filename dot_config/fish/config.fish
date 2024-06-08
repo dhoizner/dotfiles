@@ -30,6 +30,8 @@ abbr cmc "chezmoi cd"
 abbr cma "chezmoi add"
 abbr cmap "chezmoi apply"
 
+alias thepry "cd ~/workspace/railspace && bundle exec pry -r './config/environment.rb'"
+
 # TODO: move this to a function
 alias git_current_branch "git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
 abbr gst "git status"
@@ -42,6 +44,7 @@ abbr grhh! "git reset HEAD --hard"
 abbr gpf! "git push --force-with-lease"
 abbr ggpush 'git push origin "$(git_current_branch)"'
 abbr ggpull 'git pull origin "$(git_current_branch)"'
+abbr gunshallow 'git fetch --unshallow && git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git fetch origin'
 # abbr g "git status"
 # abbr ga "git add ."
 # abbr gb "git branch -v"
@@ -274,3 +277,10 @@ if type -qf direnv
 end
 
 zoxide init fish | source
+
+pyenv init - | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc'
+end

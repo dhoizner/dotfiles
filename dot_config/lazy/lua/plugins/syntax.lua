@@ -13,6 +13,7 @@ return {
         "json",
         "lua",
         "xml",
+        "sql",
       },
     },
   },

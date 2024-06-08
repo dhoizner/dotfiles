@@ -72,10 +72,11 @@ vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", { desc = "Run request und
 vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run latest request" })
 vim.keymap.set("n", "<leader>re", "<cmd>Telescope rest select_env<cr>", { desc = "Select rest.nvim environment" })
 
--- peek fold under cursor or open LSP hover
-vim.keymap.set("n", "K", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
+local luasnip = require("luasnip")
+vim.keymap.set({ "i", "s" }, "<c-s>", function()
+  if luasnip.expand_or_jumpable() then
+    luasnip.expand_or_jump()
+  else
+    vim.fn.feedkeys("<c-s>")
   end
-end)
+end, { silent = true, desc = "Expand or jump snippet" })
