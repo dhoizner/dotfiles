@@ -82,3 +82,8 @@
 (package! verb)
 
 (package! catppuccin-theme)
+
+;; solaire-mode messes up emacsclient
+(package! solaire-mode :disable t)
+
+(unpin! transient)

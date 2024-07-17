@@ -9,7 +9,6 @@ fish_add_path ~/go/bin
 # width=20 so delta decorations don't wrap around small fzf preview pane
 set fzf_diff_highlighter delta --paging=never --diff-so-fancy # --width=20
 set fzf_preview_dir_cmd lsd --all --color always
-set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 abbr ff _fzf_search_directory
 abbr fp _fzf_search_processes
 abbr fv '_fzf_search_variables (set --show | psub) (set --names | psub)'
@@ -30,8 +29,6 @@ abbr cmd "chezmoi diff"
 abbr cmc "chezmoi cd"
 abbr cma "chezmoi add"
 abbr cmap "chezmoi apply"
-
-alias thepry "cd ~/workspace/railspace && bundle exec pry -r './config/environment.rb'"
 
 # TODO: move this to a function
 alias git_current_branch "git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'"
@@ -265,17 +262,7 @@ set -g tide_vi_mode_icon_replace R
 set -g tide_vi_mode_icon_visual V
 set -g tide_zig_icon \ue6a9
 
-set -g TERM xterm-24bit
-
 fish_vi_key_bindings
-
-function fzf --wraps=fzf --description="Use fzf-tmux if in tmux session"
-    if set --query TMUX
-        fzf-tmux $argv
-    else
-        command fzf $argv
-    end
-end
 
 if type -qf direnv
     # Load a Node.js version from a .node-version or .nvmrc file
@@ -288,13 +275,3 @@ if type -qf direnv
 end
 
 zoxide init fish | source
-
-pyenv init - | source
-
-# eval (zellij setup --generate-auto-start fish | string collect)
-eval (zellij setup --generate-completion fish | string collect)
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc' ]
-    . '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc'
-end

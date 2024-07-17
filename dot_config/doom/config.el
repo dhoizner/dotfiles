@@ -53,6 +53,15 @@
     (100 (set-frame-parameter nil 'alpha 70)))
   )
 
+;; https://stackoverflow.com/questions/19054228/emacs-disable-theme-background-color-in-terminal/20233611#20233611
+(defun set-background-for-terminal (&optional frame)
+  (or frame (setq frame (selected-frame)))
+  "unsets the background color in terminal mode"
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)))
+(add-hook 'after-make-frame-functions 'set-background-for-terminal)
+(add-hook 'window-setup-hook 'set-background-for-terminal)
+
 ;; (setq doom-theme 'doom-fairy-floss)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -365,3 +374,8 @@
 (after! apheleia
   (after! ruby-mode
     (setf (alist-get 'ruby-mode apheleia-mode-alist) 'rufo)))
+
+(setq lsp-ruby-lsp-use-bundler t)
+
+;; disable copilot indentation warnings
+(setq copilot-indent-offset-warning-disable t)
