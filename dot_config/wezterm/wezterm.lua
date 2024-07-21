@@ -13,7 +13,10 @@ config.cursor_blink_ease_out = "Constant"
 
 -- Colorscheme
 -- try tokyo night?
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme_dirs = { wezterm.home_dir .. ".config/tokyonight-extras/wezterm" }
+config.color_scheme = "tokyonight_night"
+wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
+-- config.color_scheme = "Catppuccin Frappe"
 
 config.underline_thickness = 3
 config.cursor_thickness = 4

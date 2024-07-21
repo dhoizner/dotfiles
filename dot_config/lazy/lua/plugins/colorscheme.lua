@@ -65,6 +65,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
+      -- colorscheme = "flow",
       colorscheme = "tokyonight",
       -- colorscheme = "cyberdream",
       -- colorscheme = "catppuccin",
@@ -112,6 +113,21 @@ return {
           hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
         end,
       }
+    end,
+  },
+  {
+    "0xstepit/flow.nvim",
+    name = "Flow",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("flow").setup_options({
+        transparent = false,
+        fluo_color = "pink", -- pink, yellow, orange, green
+        mode = "normal", -- normal, dark, bright - dark is ugly
+        aggressive_spell = false,
+      })
     end,
   },
 }
