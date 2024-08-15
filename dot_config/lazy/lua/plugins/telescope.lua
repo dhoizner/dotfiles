@@ -1,6 +1,6 @@
 return {
   {
-    "telescope.nvim",
+    "nvim-telescope/telescope.nvim",
     dependencies = {
       "ThePrimeagen/harpoon",
       "joshmedeski/telescope-smart-goto.nvim",

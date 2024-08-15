@@ -3,6 +3,7 @@ and $brewcmd shellenv | source
 fish_add_path ~/.config/bin
 fish_add_path ~/bin
 fish_add_path ~/go/bin
+fish_add_path ~/.local/share/bob/nvim-bin
 
 [ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.fish ]; and source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.fish
 
@@ -107,7 +108,7 @@ set -x MANPAGER "nvim +Man!"
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -g fish_greeting
 
-set -g TERM xterm-24bit
+set -g TERM wezterm
 
 fish_vi_key_bindings
 
@@ -129,8 +130,6 @@ if type -qf direnv
     direnv hook fish | source
 end
 
-pyenv init - | source
-
 # eval (zellij setup --generate-auto-start fish | string collect)
 eval (zellij setup --generate-completion fish | string collect)
 
@@ -138,3 +137,5 @@ eval (zellij setup --generate-completion fish | string collect)
 if [ -f '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc' ]
     . '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc'
 end
+
+~/.local/bin/mise activate fish | source

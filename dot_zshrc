@@ -276,3 +276,5 @@ function gg {
 . ~/.config/wezterm/wezterm.sh
 
 source /Users/dan.hoizner/.config/broot/launcher/bash/br
+
+echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
