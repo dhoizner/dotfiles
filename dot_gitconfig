@@ -28,6 +28,13 @@
 [diff]
 	colorMoved = default
 
+[alias]
+  clone-for-worktrees = "!sh $HOME/.config/bin/git-clone-bare-for-worktrees.sh"
+  wt = worktree
+  lswt = worktree list
+  mkwt = "!f() { git worktree add \"$(git rev-parse --show-toplevel)+$@\"; }; f"
+  rmwt = "!f() { git worktree remove \"$(git rev-parse --show-toplevel)+$@\"; }; f"
+
 [user]
 	name = Dan Hoizner
 	email = dan.hoizner@gmail.com

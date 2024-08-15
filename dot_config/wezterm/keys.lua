@@ -50,6 +50,21 @@ function M.setup(config)
 		{ mods = M.mod, key = "m", action = act.TogglePaneZoomState },
 		{ mods = M.mod, key = "p", action = act.ActivateCommandPalette },
 		{ mods = M.mod, key = "d", action = act.ShowDebugOverlay },
+		{
+			mods = M.mod,
+			key = "e",
+			action = act.PromptInputLine({
+				description = "Enter new name for tab",
+				action = wezterm.action_callback(function(window, _pane, line)
+					-- line will be `nil` if they hit escape without entering anything
+					-- An empty string if they just hit enter
+					-- Or the actual line of text they wrote
+					if line then
+						window:active_tab():set_title(line)
+					end
+				end),
+			}),
+		},
 		M.split_nav("resize", "CTRL", "LeftArrow", "Right"),
 		M.split_nav("resize", "CTRL", "RightArrow", "Left"),
 		M.split_nav("resize", "CTRL", "UpArrow", "Up"),

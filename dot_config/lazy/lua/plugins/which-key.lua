@@ -3,7 +3,7 @@ return {
     "folke/which-key.nvim",
     enabled = true,
     opts = {
-      preset = "modern",
+      preset = "helix",
       spec = {
         { "gp", group = "peek" },
       },

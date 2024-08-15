@@ -2,11 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.del("n", "<leader>w-")
-vim.keymap.del("n", "<leader>w|")
-vim.keymap.del("n", "<leader>-")
-vim.keymap.del("n", "<leader>|")
-
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Split window down", remap = true })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Split window right", remap = true })
 vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Switch window left", remap = true })
