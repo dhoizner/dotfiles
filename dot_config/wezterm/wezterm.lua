@@ -12,10 +12,30 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
 -- Colorscheme
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		-- return "Catppuccin Mocha"
+		return "rose-pine"
+	else
+		-- return "Catppuccin Latte"
+		return "rose-pine-dawn"
+	end
+end
+
 -- try tokyo night?
 config.color_scheme_dirs = { wezterm.home_dir .. ".config/tokyonight-extras/wezterm" }
-config.color_scheme = "tokyonight_night"
+config.color_scheme = scheme_for_appearance(get_appearance())
 wezterm.add_to_config_reload_watch_list(config.color_scheme_dirs[1] .. config.color_scheme .. ".toml")
+
 -- config.color_scheme = "Catppuccin Frappe"
 
 config.underline_thickness = 3
@@ -54,7 +74,6 @@ config.font_rules = {
 -- Cursor
 config.default_cursor_style = "BlinkingBar"
 config.force_reverse_video_cursor = true
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 -- 	window_background_opacity = 0.6,
 -- 	macos_window_background_blur = 20,
 config.scrollback_lines = 10000

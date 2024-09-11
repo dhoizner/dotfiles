@@ -66,11 +66,12 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "flow",
-      colorscheme = "tokyonight",
+      -- colorscheme = "tokyonight",
       -- colorscheme = "cyberdream",
+      colorscheme = "rose-pine",
       -- colorscheme = "catppuccin",
       -- colorscheme = "oxocarbon",
-      background = "dark",
+      -- background = "light",
     },
   },
   {
@@ -85,6 +86,9 @@ return {
     priority = 1000,
     opts = {
       transparent = false,
+      theme = {
+        variant = "auto",
+      },
     },
   },
   {
@@ -130,4 +134,5 @@ return {
       })
     end,
   },
+  { "rose-pine/neovim", name = "rose-pine" },
 }

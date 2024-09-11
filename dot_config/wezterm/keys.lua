@@ -23,6 +23,8 @@ function M.setup(config)
 		{ mods = M.mod, key = "j", action = act.ScrollByPage(0.5) },
 		-- New Tab
 		{ mods = M.mod, key = "t", action = act.SpawnTab("CurrentPaneDomain") },
+		-- Close Tab
+		{ mods = M.mod, key = "w", action = act.CloseCurrentTab({ confirm = true }) },
 		-- Splits
 		{ mods = M.mod, key = "Enter", action = M.smart_split },
 		{ mods = M.mod, key = "|", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },

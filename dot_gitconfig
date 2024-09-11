@@ -6,7 +6,7 @@
 
 [delta]
 	navigate = true # use n and N to move between diff sections
-	syntax-theme = Catppuccin-frappe
+	syntax-theme = "Catppuccin Latte"
 	diff-so-fancy = true
 	# side-by-side = true
 
