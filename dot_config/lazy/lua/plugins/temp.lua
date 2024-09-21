@@ -1,4 +1,9 @@
 return {
-  { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" },
-  { "echasnovski/mini.nvim", version = false },
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    config = function()
+      require("mini.pick").setup()
+    end,
+  },
 }

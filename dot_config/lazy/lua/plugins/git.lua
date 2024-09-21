@@ -4,6 +4,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "sindrets/diffview.nvim",
+      "echasnovski/mini.pick",
     },
     cmd = "Neogit",
     opts = {
@@ -14,6 +15,9 @@ return {
       },
       integrations = {
         diffview = true,
+        telescope = false,
+        fzf_lua = false,
+        mini_pick = true,
       },
     },
     keys = {
