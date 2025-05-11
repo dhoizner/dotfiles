@@ -1,35 +1,35 @@
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-    },
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
-
-      local luasnip = require("luasnip")
-      local cmp = require("cmp")
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-      })
-    end,
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   keys = function()
+  --     return {}
+  --   end,
+  -- },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-emoji",
+  --   },
+  --   ---@param opts cmp.ConfigSchema
+  --   opts = function(_, opts)
+  --     local has_words_before = function()
+  --       unpack = unpack or table.unpack
+  --       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  --       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  --     end
+  --
+  --     local luasnip = require("luasnip")
+  --     local cmp = require("cmp")
+  --
+  --     opts.mapping = vim.tbl_extend("force", opts.mapping, {
+  --       ["<CR>"] = function(fallback)
+  --         cmp.abort()
+  --         fallback()
+  --       end,
+  --       ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+  --     })
+  --   end,
+  -- },
 
   -- stolen from https://github.com/fredrikaverpil/dotfiles/blob/main/nvim-lazyvim/lua/plugins/ai.lua
   -- nvim-cmp configuration so to not preselect completion and require tab to select
@@ -133,36 +133,36 @@ return {
   -- copilot status in lualine
   -- this is taken from the copilot lazyvim extras at:
   -- https://www.lazyvim.org/plugins/extras/coding.copilot
-  {
-    "nvim-lualine/lualine.nvim",
-    optional = true,
-    event = "VeryLazy",
-    opts = function(_, opts)
-      local Util = require("lazyvim.util")
-      local colors = {
-        [""] = Util.ui.fg("Special"),
-        ["Normal"] = Util.ui.fg("Special"),
-        ["Warning"] = Util.ui.fg("DiagnosticError"),
-        ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
-      }
-      table.insert(opts.sections.lualine_x, 2, {
-        function()
-          local icon = require("lazyvim.config").icons.kinds.Copilot
-          local status = require("copilot.api").status.data
-          return icon .. (status.message or "")
-        end,
-        cond = function()
-          local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
-          return ok and #clients > 0
-        end,
-        color = function()
-          if not package.loaded["copilot"] then
-            return
-          end
-          local status = require("copilot.api").status.data
-          return colors[status.status] or colors[""]
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   optional = true,
+  --   event = "VeryLazy",
+  --   opts = function(_, opts)
+  --     local Util = require("lazyvim.util")
+  --     local colors = {
+  --       [""] = Util.ui.fg("Special"),
+  --       ["Normal"] = Util.ui.fg("Special"),
+  --       ["Warning"] = Util.ui.fg("DiagnosticError"),
+  --       ["InProgress"] = Util.ui.fg("DiagnosticWarn"),
+  --     }
+  --     table.insert(opts.sections.lualine_x, 2, {
+  --       function()
+  --         local icon = require("lazyvim.config").icons.kinds.Copilot
+  --         local status = require("copilot.api").status.data
+  --         return icon .. (status.message or "")
+  --       end,
+  --       cond = function()
+  --         local ok, clients = pcall(vim.lsp.get_active_clients, { name = "copilot", bufnr = 0 })
+  --         return ok and #clients > 0
+  --       end,
+  --       color = function()
+  --         if not package.loaded["copilot"] then
+  --           return
+  --         end
+  --         local status = require("copilot.api").status.data
+  --         return colors[status.status] or colors[""]
+  --       end,
+  --     })
+  --   end,
+  -- },
 }

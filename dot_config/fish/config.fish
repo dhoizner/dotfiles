@@ -105,7 +105,7 @@ abbr uuid "uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste
 abbr c watch_fish_theme
 
 
-set -x EDITOR nvim
+set -x EDITOR vim
 set -x MANPAGER "nvim +Man!"
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -g fish_greeting
@@ -155,4 +155,22 @@ if [ -f '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc' ]
     . '/Users/dan.hoizner/Downloads/google-cloud-sdk/path.fish.inc'
 end
 
-~/.local/bin/mise activate fish | source
+# ~/.config/fish/config.fish
+if test "$VSCODE_RESOLVING_ENVIRONMENT" = 1
+    ~/.local/bin/mise activate fish --shims | source
+else if status is-interactive
+    ~/.local/bin/mise activate fish | source
+else
+    ~/.local/bin/mise activate fish --shims | source
+end
+
+# pnpm
+set -gx PNPM_HOME "/Users/dan.hoizner/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

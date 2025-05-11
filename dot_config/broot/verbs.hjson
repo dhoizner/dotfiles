@@ -28,7 +28,8 @@ verbs: [
         shortcut: e
         key: enter
         apply_to: text_file
-        execution: "$EDITOR {file}:{line}"
+        # execution: "$EDITOR {file}:{line}" # helix
+        execution: "NVIM_APPNAME=lazy\ nvim +{line} {file}" # lazyvim
         leave_broot: false
     }
     {
