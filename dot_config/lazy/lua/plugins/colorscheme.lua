@@ -135,4 +135,10 @@ return {
     end,
   },
   { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+  },
 }

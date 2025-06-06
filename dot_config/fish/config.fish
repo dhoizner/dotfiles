@@ -160,6 +160,7 @@ if test "$VSCODE_RESOLVING_ENVIRONMENT" = 1
     ~/.local/bin/mise activate fish --shims | source
 else if status is-interactive
     ~/.local/bin/mise activate fish | source
+    atuin init fish | source
 else
     ~/.local/bin/mise activate fish --shims | source
 end
